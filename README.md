@@ -1,4 +1,5 @@
-# My Universal React Project
+# Star Wars Favourites Project
+<b> React Native app that shows all of the Star Wars characters and allows to add them ro favourites, calculates favourites characters based on their gender. </b>
 
 <p>
   <!-- iOS -->
@@ -8,10 +9,6 @@
   <!-- Android -->
   <a href="https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample">
     <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
-  </a>
-  <!-- Web -->
-  <a href="https://docs.expo.dev/workflow/web/">
-    <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
   </a>
 </p>
 
@@ -23,7 +20,7 @@
 - Open the project in a React runtime to try it:
   - iOS: [Client iOS](https://itunes.apple.com/app/apple-store/id982107779)
   - Android: [Client Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample)
-  - Web: Any web browser
+
 
 ## Running/Modifying Native Code
 

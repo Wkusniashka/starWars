@@ -41,20 +41,30 @@ export default function HomeScreen({ navigation }) {
         ) {
             gender = "other";
         }
-        if (gender === "male") {
-            like
-                ? setMaleFavourites(maleFavourites + 1)
-                : setMaleFavourites(maleFavourites - 1);
-        }
-        if (gender === "female") {
-            like
-                ? setFemaleFavourites(femaleFavourites + 1)
-                : setFemaleFavourites(femaleFavourites - 1);
-        }
-        if (gender === "other") {
-            like
-                ? setOtherFavourites(otherFavourites + 1)
-                : setOtherFavourites(otherFavourites - 1);
+        switch (gender) {
+            case "male":
+                {
+                    like
+                        ? setMaleFavourites(maleFavourites + 1)
+                        : setMaleFavourites(maleFavourites - 1);
+                }
+                break;
+            case "female":
+                {
+                    like
+                        ? setFemaleFavourites(femaleFavourites + 1)
+                        : setFemaleFavourites(femaleFavourites - 1);
+                }
+                break;
+            case "other":
+                like
+                    ? setOtherFavourites(otherFavourites + 1)
+                    : setOtherFavourites(otherFavourites - 1);
+                break;
+            default:
+                like
+                    ? setOtherFavourites(otherFavourites + 1)
+                    : setOtherFavourites(otherFavourites - 1);
         }
     };
 

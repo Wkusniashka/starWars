@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet } from "react-native";
+import PropTypes from "prop-types";
 
 export default function OtherFavourites({ otherFavourites }) {
     return (
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 18,
         color: "#2F4F4F",
-        fontWeight: '500',
+        fontWeight: "500",
     },
     count: {
         fontWeight: "bold",
@@ -36,3 +37,7 @@ const styles = StyleSheet.create({
         color: "#2F4F4F",
     },
 });
+
+OtherFavourites.propTypes = {
+    otherFavourites: PropTypes.number.isRequired,
+};

@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet } from "react-native";
+import PropTypes from "prop-types";
 
 export default function CharacterScreen({ route }) {
     const character = route?.params?.character;
@@ -55,3 +56,7 @@ const styles = StyleSheet.create({
         fontWeight: '500',
     },
 });
+
+CharacterScreen.propTypes = {
+    route: PropTypes.object.isRequired,
+}

@@ -4,15 +4,15 @@ import { useState, useContext } from "react";
 import HeaderCharacter from "../components/HeaderCharacter";
 import Favourites from "../components/Favourites/Favourites";
 import { CharactersContext } from "../CharactersContext";
-
+import PropTypes from "prop-types";
 export default function HomeScreen({ navigation }) {
     const [maleFavourites, setMaleFavourites] = useState(0);
     const [femaleFavourites, setFemaleFavourites] = useState(0);
     const [otherFavourites, setOtherFavourites] = useState(0);
     const [resetLikes, setResetLikes] = useState(false);
-    // const [isLoading, setLoading] = useState(false);
 
-    const [characters, next, fetchMoreData, isLoading] = useContext(CharactersContext);
+    const [characters, next, fetchMoreData, isLoading] =
+        useContext(CharactersContext);
 
     const setFavourites = (like, gender) => {
         if (
@@ -103,3 +103,6 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
 });
+HomeScreen.propTypes = {
+    navigation: PropTypes.object.isRequired,
+};

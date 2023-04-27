@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
+import PropTypes from "prop-types";
 
-export default function FemaleFavourites({femaleFavourites}) {
+export default function FemaleFavourites({ femaleFavourites }) {
     return (
         <View style={[styles.container, styles.shadowProp]}>
             <Text style={styles.text}>Female:</Text>
@@ -27,12 +28,16 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 18,
-        color: '#2F4F4F',
-        fontWeight: '500',
+        color: "#2F4F4F",
+        fontWeight: "500",
     },
     count: {
         fontWeight: "bold",
         fontSize: 20,
-        color: '#2F4F4F',
+        color: "#2F4F4F",
     },
 });
+
+FemaleFavourites.propTypes = {
+    femaleFavourites: PropTypes.number.isRequired,
+};

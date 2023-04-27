@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons/faHeart";
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons/faHeart";
-
+import PropTypes from "prop-types";
 
 export default function Character({ info, navigation, setFavourites, resetLikes}) {
     const [liked, setLiked] = useState(false);
@@ -66,3 +66,10 @@ const styles = StyleSheet.create({
         fontWeight: '500',
     },
 });
+
+Character.propTypes = {
+    info: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
+    setFavourites: PropTypes.func.isRequired,
+    resetLikes: PropTypes.bool.isRequired,
+}

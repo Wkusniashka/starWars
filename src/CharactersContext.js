@@ -1,5 +1,6 @@
 import React, { useState, createContext, useEffect } from "react";
 import { getCharacters, getMoreCharacters } from "./helper/api";
+import PropTypes from "prop-types";
 
 export const CharactersContext = createContext();
 
@@ -33,3 +34,7 @@ export const CharactersProvider = (props) => {
         </CharactersContext.Provider>
     );
 };
+
+CharactersContext.propTypes = {
+    props: PropTypes.object,
+}

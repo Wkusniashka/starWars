@@ -1,5 +1,6 @@
 import { TouchableOpacity } from "react-native";
-import {  Text, StyleSheet } from "react-native";
+import { Text, StyleSheet } from "react-native";
+import PropTypes from "prop-types";
 
 export default function Reset({ clear }) {
     return (
@@ -33,6 +34,10 @@ const styles = StyleSheet.create({
         padding: 10,
         fontSize: 18,
         alignSelf: "center",
-        fontWeight: '500',
+        fontWeight: "500",
     },
 });
+
+Reset.propTypes = {
+    clear: PropTypes.func.isRequired,
+};

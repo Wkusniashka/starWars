@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 18,
         color: '#2F4F4F',
-        fontWeight: 500,
+        fontWeight: '500',
     },
     count: {
         fontWeight: "bold",

@@ -2,6 +2,7 @@ import HomeScreen from "./src/screens/HomeScreen";
 import CharacterScreen from "./src/screens/CharacterScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { CharactersProvider } from "./src/CharactersContext";
 
 const Stack = createNativeStackNavigator();
 
@@ -10,7 +11,11 @@ export default function App() {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name="StarWars Favourites">
-                    {(props) => <HomeScreen {...props} />}
+                    {(props) => (
+                        <CharactersProvider>
+                            <HomeScreen {...props} />
+                        </CharactersProvider>
+                    )}
                 </Stack.Screen>
                 <Stack.Screen
                     name="CharacterScreen"

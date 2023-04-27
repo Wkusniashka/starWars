@@ -1,37 +1,18 @@
 import { StyleSheet, FlatList, ActivityIndicator, View } from "react-native";
 import Character from "../components/Character";
-import { getCharacters, getMoreCharacters } from "../helper/api";
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import HeaderCharacter from "../components/HeaderCharacter";
 import Favourites from "../components/Favourites/Favourites";
+import { CharactersContext } from "../CharactersContext";
 
 export default function HomeScreen({ navigation }) {
     const [maleFavourites, setMaleFavourites] = useState(0);
     const [femaleFavourites, setFemaleFavourites] = useState(0);
     const [otherFavourites, setOtherFavourites] = useState(0);
     const [resetLikes, setResetLikes] = useState(false);
-    const [isLoading, setLoading] = useState(true);
-    const [characters, setCharacters] = useState([]);
-    const [next, setNext] = useState();
+    // const [isLoading, setLoading] = useState(false);
 
-    const getData = async () => {
-        const data = await getCharacters();
-        setCharacters(data.results);
-        setNext(data.next);
-        setLoading(false);
-    };
-
-    const fetchMoreData = async () => {
-        if (next) {
-            const moreData = await getMoreCharacters(next);
-            setCharacters([...characters, ...moreData.results]);
-            setNext(moreData.next);
-        }
-    };
-
-    useEffect(() => {
-        getData();
-    }, []);
+    const [characters, next, fetchMoreData, isLoading] = useContext(CharactersContext);
 
     const setFavourites = (like, gender) => {
         if (

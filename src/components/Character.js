@@ -29,7 +29,6 @@ export default function Character({ info, navigation, setFavourites, resetLikes}
             <TouchableOpacity
                 onPress={() =>
                     navigation.navigate("CharacterScreen", {
-                        character: info,
                         name: info.name,
                     })
                 }

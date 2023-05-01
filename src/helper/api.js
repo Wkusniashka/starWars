@@ -1,4 +1,4 @@
-const baseURL = 'https://swapi.dev/api/';
+const baseURL = "https://swapi.dev/api/";
 
 export const getCharacters = async () => {
     try {
@@ -19,3 +19,13 @@ export const getMoreCharacters = async (next) => {
         console.error(error);
     }
 };
+
+export async function getHomeworld(planetsURL) {
+    try {
+        const response = await fetch(`${planetsURL}`);
+        const data = await response.json();
+        return data.name;
+    } catch (error) {
+        console.error(error);
+    }
+}

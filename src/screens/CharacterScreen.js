@@ -1,16 +1,27 @@
 import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { CharactersContext } from "../CharactersContext";
+import { getHomeworld } from "../helper/api";
 
 export default function CharacterScreen({ route }) {
     const [characters] = useContext(CharactersContext);
+    const [homeworld, setHomeworld] = useState();
 
     const characterName = route?.params?.name;
 
     const character = characters.filter(
         (item) => item.name === characterName
     )[0];
+
+    useEffect(() => {
+        home();
+    }, [character.homeworld]);
+
+    const home = async () => {
+        const home = await getHomeworld(character.homeworld);
+        setHomeworld(home)
+    };
 
     return (
         <View style={styles.container}>
@@ -23,6 +34,10 @@ export default function CharacterScreen({ route }) {
                     <View style={styles.quality}>
                         <Text style={styles.name}>Gender</Text>
                         <Text style={styles.name}>{character?.gender}</Text>
+                    </View>
+                    <View style={styles.quality}>
+                        <Text style={styles.name}>Homeworld</Text>
+                        <Text style={styles.name}>{homeworld}</Text>
                     </View>
                     <View style={styles.quality}>
                         <Text style={styles.name}>Height</Text>
